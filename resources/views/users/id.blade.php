@@ -30,9 +30,9 @@
             <label for="exampleFormControlSelect1">Tipo de usuário</label>
             <select required name="user_type_id" class="form-control" id="exampleFormControlSelect1">
 
-                <option @if ($user->user_type_id == \App\Constants\UserConstant::ADMIN ) selected @endif value="{{ \App\Constants\UserConstant::ADMIN }}">Admin</option>
+                <option @if ($user->user_type_id == \App\Constants\UserConstant::Administrador ) selected @endif value="{{ \App\Constants\UserConstant::Administrador }}">Admin</option>
 
-                <option @if ($user->user_type_id == \App\Constants\UserConstant::REVENDEDORA ) selected @endif  value="{{ \App\Constants\UserConstant::REVENDEDORA }}">Revendedor</option>
+                <option @if ($user->user_type_id == \App\Constants\UserConstant::Cliente ) selected @endif  value="{{ \App\Constants\UserConstant::Cliente }}">Revendedor</option>
             </select>
         </div>
         <div class="col-lg-12 col-sm-12">

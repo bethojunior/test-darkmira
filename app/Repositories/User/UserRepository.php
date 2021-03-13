@@ -21,23 +21,14 @@ class UserRepository extends AbstractRepository
     /**
      * @return Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]
      */
-    public function findAll(){
+    public function findAll()
+    {
         return $this->getModel()
-            ::with('userStatus')
-            ->with('userType')
+            ::with('userType')
             ->orderByDesc('users.id')
             ->get();
     }
 
-    /**
-     * @return mixed
-     */
-    public function findAllSalesMan(){
-        return $this->getModel()
-            ::with('userStatus')
-            ->where('user_type_id','=',UserConstant::REVENDEDORA)
-            ->count('id');
-    }
 
 
 }

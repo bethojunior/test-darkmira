@@ -7,7 +7,6 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/home/init.css') }}">
-    Dashboard
 @stop
 
 @section('js')
