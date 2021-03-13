@@ -33,13 +33,6 @@ class UserService
     }
 
     /**
-     * @return mixed
-     */
-    public function getAllSalesMan(){
-        return $this->repository->findAllSalesMan();
-    }
-
-    /**
      * @param array $request
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
      */
@@ -66,7 +59,6 @@ class UserService
                 'email'             => $request['email'],
                 'phone'             => $request['phone'],
                 'user_type_id'      => $request['user_type_id'],
-                'user_status_id'    => UserStatusConstant::ACTIVE,
                 'password'          => Hash::make($request['password']),
             ];
 

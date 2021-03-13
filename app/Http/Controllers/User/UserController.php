@@ -20,29 +20,6 @@ class UserController extends Controller
         $this->service = $service;
     }
 
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function authenticate(Request $request)
-    {
-        $request = $request->all();
-
-        if(!isset($request['email']))
-            return ApiResponse::error('','Email é um campo válido','false');
-
-        if(!isset($request['password']))
-            return ApiResponse::error('','Senha é um campo válido','false');
-
-        try{
-            $user = $this->service
-                ->authenticate($request);
-        }catch (\Exception $e){
-            return ApiResponse::error('',$e->getMessage());
-        }
-
-        return ApiResponse::success($user,'Usuário logado');
-    }
 
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View

@@ -220,33 +220,7 @@ return [
             'url'         => 'home',
             'icon'        => 'fas fa-fw fa-home',
         ],
-        ['header' => 'Pedidos'],
-        [
-            'text' => 'Listagem de Pedidos',
-            'icon' => 'fa fa-ticket',
-            'url'  => ''
-        ],
-        ['header' => 'Gerenciamento'],
-        [
-            'text' => 'Gerenciamento da aplicação',
-            'icon' => 'fa fa-users',
-            'url'  => ''
-        ],
-        ['header' => 'Blog'],
-        [
-            'text' => 'Gereciamento de Blog',
-            'icon' => 'fas fa-fw fa-blog',
-            'submenu' => [
-                [
-                    'text' => 'Listagem de  Blog',
-                    'url'  => ''
-                ],
-                [
-                    'text' => 'Inserir blog',
-                    'url'  => ''
-                ]
-            ]
-        ],
+
         ['header' => 'Usuários'],
         [
             'text' => 'Gerenciar usuários',
@@ -259,6 +233,25 @@ return [
                 [
                     'text' => 'Inserir usuário',
                     'url'  => 'user/create'
+                ]
+            ]
+        ],
+        ['header' => 'Memórias'],
+        [
+            'text' => 'Gerenciar Memórias',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Listagem geral',
+                    'url'  => 'memoirs'
+                ],
+                [
+                    'text' => 'Memórias em analise',
+                    'url'  => 'memoirs/analyze'
+                ],
+                [
+                    'text' => 'Inserir memória',
+                    'url'  => 'memoirs/create'
                 ]
             ]
         ],

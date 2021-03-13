@@ -5,16 +5,19 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('home.home');
-});
+
+Route::get('', 'Home\HomeController@home')->name('.home');
+
 Route::get('/login', function () {
     return view('auth.login');
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'Home\HomeController@dashboard')->name('dashboard');
 });
 
 Route::middleware('auth')
     ->group(base_path('routes/private/user.php'));
+
+Route::middleware('auth')
+    ->group(base_path('routes/private/memories.php'));

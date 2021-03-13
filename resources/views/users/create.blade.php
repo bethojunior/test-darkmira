@@ -27,8 +27,8 @@
         <div class="form-group col-lg-4 col-sm-12">
             <label for="exampleFormControlSelect1">Tipo de usuário</label>
             <select required name="user_type_id" class="form-control" id="exampleFormControlSelect1">
-                <option value="{{ \App\Constants\UserConstant::ADMIN }}">Admin</option>
-                <option value="{{ \App\Constants\UserConstant::REVENDEDORA }}">Revendedor</option>
+                <option value="{{ \App\Constants\UserConstant::Administrador }}">Admin</option>
+                <option value="{{ \App\Constants\UserConstant::Cliente }}">Revendedor</option>
             </select>
         </div>
         <div class="col-lg-12 col-sm-12">
