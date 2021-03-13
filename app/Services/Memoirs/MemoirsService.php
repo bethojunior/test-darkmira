@@ -29,12 +29,20 @@ class MemoirsService
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getAll()
     {
-        return $this->repository->all()
-            ->sortDesc();
+        return $this->repository->findAll();
+    }
+
+    /**
+     * @param int $status
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getAllByStatus(int $status)
+    {
+        return $this->repository->findAllByStatus($status);
     }
 
     /**
@@ -89,5 +97,24 @@ class MemoirsService
 
         return $result;
     }
+
+    /**
+     * @param $id
+     * @param array $params
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null]
+     */
+    public function update($id, array $params)
+    {
+        $result = $this->repository->find($id);
+
+        if (!$result) {
+            throw new Exception("Memória não encontrado");
+        }
+
+        $result->update($params);
+
+        return $result;
+    }
+
 
 }

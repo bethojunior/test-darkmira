@@ -23,4 +23,42 @@ class MemoirsRepository extends AbstractRepository
         $this->setModel(Memoirs::class);
     }
 
+    /**
+     * @param string $name
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function findByName(string $name)
+    {
+        return $this->getModel()
+            ::where('name','like',$name.'/')
+            ->orderByDesc('created_at')
+            ->paginate(4);
+
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function findAll()
+    {
+        return $this->getModel()
+            ::orderByDesc('created_at')
+            ->paginate(4);
+
+    }
+
+    /**
+     * @param int $status
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function findAllByStatus(int $status)
+    {
+        return $this->getModel()
+            ::where('status','=',$status)
+            ->orderByDesc('created_at')
+            ->paginate(4);
+
+    }
+
+
 }

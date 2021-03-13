@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Memoirs\CreateMemoirsRequest;
 use App\Services\Memoirs\MemoirsService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class MemoirsController extends Controller
 {
@@ -34,6 +35,21 @@ class MemoirsController extends Controller
     {
         $all = $this->service
             ->getAll();
+
+        return view('memoirs.show')->with(
+            [
+                'memories' => $all
+            ]
+        );
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function analyze()
+    {
+        $all = $this->service
+            ->getAllByStatus(1);
 
         return view('memoirs.show')->with(
             [
@@ -84,6 +100,26 @@ class MemoirsController extends Controller
         }
         return redirect()->route('memoirs.index')
             ->with('success', 'Memória excluida com sucesso');
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function update($id, Request $request) : RedirectResponse
+    {
+        try {
+            $this->service
+                ->update($id, $request->all());
+
+        } catch (\Exception $exception) {
+            return redirect()->route('memoirs.index')
+                ->with('error', 'Erro ao editar memória'.$exception->getMessage());
+        }
+
+        return redirect()->route('memoirs.index')
+            ->with('success', 'Memória atualizada com sucesso');
     }
 
 }

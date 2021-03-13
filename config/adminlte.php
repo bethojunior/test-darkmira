@@ -246,6 +246,10 @@ return [
                     'url'  => 'memoirs'
                 ],
                 [
+                    'text' => 'Memórias em analise',
+                    'url'  => 'memoirs/analyze'
+                ],
+                [
                     'text' => 'Inserir memória',
                     'url'  => 'memoirs/create'
                 ]
