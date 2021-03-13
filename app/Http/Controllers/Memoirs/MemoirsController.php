@@ -14,6 +14,7 @@ use App\Http\Requests\Memoirs\CreateMemoirsRequest;
 use App\Services\Memoirs\MemoirsService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MemoirsController extends Controller
 {
@@ -72,13 +73,24 @@ class MemoirsController extends Controller
      */
     public function insert(CreateMemoirsRequest $request) : RedirectResponse
     {
+        $user = Auth::user();
+        if($request['status'] === null)
+            $request['status'] = 1;
         try{
             $insert = $this
                 ->service
                 ->create($request->all());
         }catch (\Exception $exception){
+            if($user == null){
+                return redirect()->route('memories.memories')
+                    ->with('error', 'Erro ao inserir memória'.$exception->getMessage());
+            }
             return redirect()->route('memoirs.index')
                 ->with('error', 'Erro ao inserir memória'.$exception->getMessage());
+        }
+        if($user == null){
+            return redirect()->route('memories.list')
+                ->with('modal', 'Memória inserida com sucesso');
         }
         return redirect()->route('memoirs.index')
             ->with('success', 'Memória inserida com sucesso');
@@ -120,6 +132,30 @@ class MemoirsController extends Controller
 
         return redirect()->route('memoirs.index')
             ->with('success', 'Memória atualizada com sucesso');
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function memories()
+    {
+        return view('home.memories');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function listMemories()
+    {
+        $all = $this->service
+            ->getAllByStatus(0);
+
+        return view('home.list-memories')->with(
+            [
+                'memories' => $all
+            ]
+        );
     }
 
 }
