@@ -9,24 +9,19 @@
                 <div class="center">
                 </div>
                 <div class="col-lg-12 center relative">
-                    <img id="image-user" class="card-img-top" src="{{ asset('storage/memoirs').'/'.$memory->image }}" alt="Card image cap">
+                    <img class="col-lg-12 border-image-memories" src="{{ asset('storage/memoirs').'/'.$memory->image }}" alt="Card image cap">
                 </div>
-                <div class="card-body">
-                    <div class="row col-lg-12 center">
-                        <p class="text-center">
-                            <b style="color: #FFDFCC">
-                                {{ $memory->name }}
-                            </b>
-                        </p>
+                <div class="card-body-show-memories">
+                    <div class="first">
+                        <b>{{ $memory->name }}</b>
                     </div>
-                    <div class="row col-lg-12 center">
+                    <hr>
+                    <div class="second">
                         {{ \Carbon\Carbon::parse($memory->birth_date)->format('Y') }} - {{ \Carbon\Carbon::parse($memory->death_date)->format('Y') }}
                     </div>
                     <hr>
-                    <div class="row col-lg-12 form-group center">
-                        <p class="text-center">
-                            {{ $memory->content }}
-                        </p>
+                    <div class="third">
+                        {{ $memory->content }}
                     </div>
                 </div>
             </div>
