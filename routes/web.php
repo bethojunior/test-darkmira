@@ -21,3 +21,12 @@ Route::middleware('auth')
 
 Route::middleware('auth')
     ->group(base_path('routes/private/memories.php'));
+
+
+Route::group(['prefix' => 'memories'], function () {
+    Route::group(['as' => 'memories'], function () {
+        Route::get('', 'Memoirs\MemoirsController@memories')->name('.memories');
+        Route::get('list', 'Memoirs\MemoirsController@listMemories')->name('.list');
+        Route::post('/create', 'Memoirs\MemoirsController@insert')->name('.insert');
+    });
+});

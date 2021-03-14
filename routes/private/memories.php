@@ -16,7 +16,6 @@ Route::group(['prefix' => 'memoirs'], function () {
         Route::get('create','Memoirs\MemoirsController@create')->name('.create');
         Route::post('insert', 'Memoirs\MemoirsController@insert')->name('.insert');
         Route::delete('{id}', 'Memoirs\MemoirsController@destroy')->name('.destroy');
-//        Route::get('{id}', 'User\UserController@findById')->name('.find');
         Route::put('{id}', 'Memoirs\MemoirsController@update')->name('.update');
     });
 });

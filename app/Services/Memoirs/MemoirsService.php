@@ -42,7 +42,8 @@ class MemoirsService
      */
     public function getAllByStatus(int $status)
     {
-        return $this->repository->findAllByStatus($status);
+        return $this->repository
+            ->findAllByStatus($status);
     }
 
     /**
