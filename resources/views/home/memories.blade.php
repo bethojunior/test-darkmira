@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/home/init.css') }}">
     @extends('home.nav')
     <div class="respect-height-nav row col-lg-12">
-        <form class="card row col-lg-4" method="POST" action="{{ route('memories.insert') }}" enctype="multipart/form-data">
+        <form class="card row col-lg-6" method="POST" action="{{ route('memories.insert') }}" enctype="multipart/form-data">
             @method('POST')
             @csrf
             <div class="col-lg-12 center relative">

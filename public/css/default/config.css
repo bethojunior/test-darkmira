@@ -55,6 +55,9 @@ tr{
 .text-center{
     text-align: center!important;
 }
+.text-left{
+    text-align: left!important;
+}
 @media (min-width: 992px){
     .sidebar-mini .nav-sidebar, .sidebar-mini .nav-sidebar .nav-link, .sidebar-mini .nav-sidebar>.nav-header {
         white-space: inherit!important;

@@ -42,7 +42,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Aguarde a aprovação para sua publicaçao ser publica</p>
+                    <p>Aguarde a aprovação para sua memória ser publica</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

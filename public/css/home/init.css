@@ -71,7 +71,7 @@
     box-shadow: 44px -20px 27px 14px rgba(255,243,239,1);
 }
 
-.respect-height-nav.row.col-lg-12 .col-lg-4{
+.respect-height-nav.row.col-lg-12 .card.col-lg-6{
     padding-top: 1vw;
     border-radius: 1vw;
     -webkit-box-shadow: -1px 1px 22px -12px rgba(0,0,0,0.75);
@@ -87,7 +87,7 @@
     box-shadow: -1px 1px 16px -12px rgba(0,0,0,0.75);
 }
 
-.respect-height-nav.row.col-lg-12 .col-lg-4 .col-lg-12.relative input.input-hide{
+.respect-height-nav.row.col-lg-12 .col-lg-6 .col-lg-12.relative input.input-hide{
     position: absolute;
     left: 0;
     width: 100%;
